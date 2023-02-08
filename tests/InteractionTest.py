@@ -2,6 +2,8 @@ from interaction import Interaction
 
 
 def tests():
+    test_get_pair()
+    test_get_opposite_pair()
     opposite_tests()
 
 
