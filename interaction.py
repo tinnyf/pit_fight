@@ -24,7 +24,10 @@ class Interaction:
         return (self.get_pair(position) + 2) % 4
 
     def opposite(self, position):
-        return position
+        base_pair_position = self.get_opposite_pair(position) * 2
+        if position % 2 == 0:
+            return base_pair_position + 1
+        return base_pair_position
 
     def right(self, position):
         return self.get_minus_one(position)
