@@ -23,27 +23,27 @@ def opposite_tests():
 def test_get_pair():
     interaction = Interaction()
 
-    assert interaction.get_pair(0) == 0
-    assert interaction.get_pair(1) == 0
-    assert interaction.get_pair(2) == 1
-    assert interaction.get_pair(3) == 1
-    assert interaction.get_pair(4) == 2
-    assert interaction.get_pair(5) == 2
-    assert interaction.get_pair(6) == 3
-    assert interaction.get_pair(7) == 3
+    assert interaction.get_pair_index(0) == 0
+    assert interaction.get_pair_index(1) == 0
+    assert interaction.get_pair_index(2) == 1
+    assert interaction.get_pair_index(3) == 1
+    assert interaction.get_pair_index(4) == 2
+    assert interaction.get_pair_index(5) == 2
+    assert interaction.get_pair_index(6) == 3
+    assert interaction.get_pair_index(7) == 3
 
 
 def test_get_opposite_pair():
     interaction = Interaction()
 
-    assert interaction.get_opposite_pair(0) == 2
-    assert interaction.get_opposite_pair(1) == 2
-    assert interaction.get_opposite_pair(2) == 3
-    assert interaction.get_opposite_pair(3) == 3
-    assert interaction.get_opposite_pair(4) == 0
-    assert interaction.get_opposite_pair(5) == 0
-    assert interaction.get_opposite_pair(6) == 1
-    assert interaction.get_opposite_pair(7) == 1
+    assert interaction.get_opposite_pair_index(0) == 2
+    assert interaction.get_opposite_pair_index(1) == 2
+    assert interaction.get_opposite_pair_index(2) == 3
+    assert interaction.get_opposite_pair_index(3) == 3
+    assert interaction.get_opposite_pair_index(4) == 0
+    assert interaction.get_opposite_pair_index(5) == 0
+    assert interaction.get_opposite_pair_index(6) == 1
+    assert interaction.get_opposite_pair_index(7) == 1
 
 
 '''

@@ -1,6 +1,24 @@
 class Interaction:
     def __init__(self):
         self.characters = {}
+        self.pairings = [
+            {
+                'left': 1,
+                'right': 0,
+            },
+            {
+                'left': 3,
+                'right': 2,
+            },
+            {
+                'left': 5,
+                'right': 4,
+            },
+            {
+                'left': 7,
+                'right': 6,
+            },
+        ]
 
     def get_plus_one(self, position):
         position = position + 1
@@ -18,16 +36,30 @@ class Interaction:
         return self.get_plus_one(position)
 
     def get_pair(self, position):
-        return position // 2
+        return self.pairings[self.get_pair_index(position)]
+
+    def in_pairing(self, position, pairing):
+        return position in pairing.values()
+
+    def get_pair_index(self, position):
+        return next(
+            i
+            for i, pairing in enumerate(self.pairings)
+            if self.in_pairing(position, pairing)
+        )
+
+    def get_opposite_pair_index(self, position):
+        return (self.get_pair_index(position) + 2) % 4
 
     def get_opposite_pair(self, position):
-        return (self.get_pair(position) + 2) % 4
+        return self.pairings[self.get_opposite_pair_index(position)]
 
     def opposite(self, position):
-        base_pair_position = self.get_opposite_pair(position) * 2
-        if position % 2 == 0:
-            return base_pair_position + 1
-        return base_pair_position
+        opposite_pair = self.get_opposite_pair(position)
+        our_pair = self.get_pair(position)
+        if our_pair['left'] == position:
+            return opposite_pair['right']
+        return opposite_pair['left']
 
     def right(self, position):
         return self.get_minus_one(position)
